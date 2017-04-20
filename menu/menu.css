@@ -1,0 +1,86 @@
+body{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	font-family: 'Josefin Sans';
+
+	background-image: url('imagem.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+/*------------MENU-----------------*/
+header{
+	background-color: #1b2838;
+	width: 100%;
+	height: 50px;
+
+
+	float: left;
+	z-index: 99;
+	position: fixed;
+	opacity: 0.9;
+}
+
+
+nav{
+	margin: 0 auto;
+	width: 1080px;
+	height: 50px;
+}
+
+nav img{
+	float: left;
+}
+
+nav ul{
+	width: 70%;
+ 	height: 50px;
+  	margin: 0 auto;
+  	float: right;
+}
+
+nav li {
+  color: #fff;
+  float: left;
+  width: auto;
+  height: 19px;
+  padding: 15px 35px;
+  text-align: center;
+  font-size: 15px;
+
+  list-style-type: none; /* Sem estilo de linha. */
+  display: inline; /* Exibir um ao lado do outro. */
+}
+
+nav ul li:hover{
+	background: #ffc40d;
+	transition: all 0.3s;
+	color: #000000 2px;
+	cursor: pointer;
+}
+/*------------FIM MENU-----------------*/
+
+section h1{
+	color: #000000;
+	text-align: center;
+	padding: 150px;
+	
+}
+
+.button{
+	background-color: #152C55;
+	border:none;
+	color:white;
+	padding: 15px 50px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	cursor: pointer;
+	margin: 4px 650px;
+}
+
+

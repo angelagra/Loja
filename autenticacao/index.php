@@ -1,6 +1,9 @@
 <?php
 
+	session_start();
+
 	include('../db/index.php');
+
 
 	if(isset($_POST['email']) && isset($_POST['senha'])){
 
@@ -16,15 +19,20 @@
 				 str_replace('\\', '',
 				 $_POST['senha']))));
 
-		$query = odbc_exec($db, "SELECT idUsuario, tipoPerfil FROM Usuario 
-							WHERE loginUsuario = '$email' 
-							AND senhaUsuario = HASHBYTES('SHA1','$senha')");
+		$query = odbc_exec($db, "SELECT nomeUsuario, idUsuario, tipoPerfil 
+								 FROM Usuario 
+								 WHERE loginUsuario = '$email' 
+								 AND senhaUsuario = HASHBYTES('SHA1','$senha')");
 
 		$result = odbc_fetch_array($query); //os indices do $result será o idUsuario, tipoPerfil
 
 		if(!empty($result['idUsuario']) && !empty($result['tipoPerfil'])){
+			//echo 'Logado com Sucesso';
+			$_SESSION['idUsuario'] = $result['idUsuario'];
+			$_SESSION['tipoPerfil'] = $result['tipoPerfil'];
+			$_SESSION['nomeUsuario'] = $result['nomeUsuario'];
 
-			echo 'Deu CErto';
+			header("Location: ../menu/");
 
 		}else{
 			$erro = 'Email ou Senha Incorretos';
@@ -33,6 +41,7 @@
 	}
 
 	include ('index.tpl.php');
+
 
 
 ?>
